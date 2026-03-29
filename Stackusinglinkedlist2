@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node {
+    int data;
+    Node* next;
+};
+
+class Stack {
+private:
+    Node* topNode;   // points to top of stack
+
+public:
+    // constructor
+    Stack() {
+        topNode = NULL;
+    }
+
+    // push operation
+    void push(int value) {
+        Node* newNode = new Node;
+        newNode->data = value;
+        newNode->next = topNode;
+        topNode = newNode;
+
+        cout << value << " pushed into stack\n";
+    }
+
+    // pop operation
+    void pop() {
+        if (topNode == NULL) {
+            cout << "Stack Underflow\n";
+            return;
+        }
+
+        Node* temp = topNode;
